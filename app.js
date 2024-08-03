@@ -14,11 +14,11 @@ const rl = readline.createInterface({
 function realizarAccion(opcion) {
     switch (opcion) {
         case '1':
-            console.log("Has seleccionado la opción 1");
+            // console.log("Has seleccionado la opción 1");
             solicitarNotas();
             break;
         case '2':
-            console.log("Has seleccionado la opción 2");
+            // console.log("Has seleccionado la opción 2");
             rl.close();
             break;
         default:
@@ -86,24 +86,21 @@ async function solicitarNotas() {
             respuestas.push(Math.round(numberParseFloat));
             respuestas.push(Math.round(numberParseFloat * 0.15));
             sumaNotas = sumaNotas + (numberParseFloat * 0.15);
-            console.log('sumaNotas: ', sumaNotas);
         } else if (pregunta.includes('Acumulativo')) {
             const numberParseFloat = parseFloat(respuesta);
             respuestas.push(Math.round(numberParseFloat));
             sumaNotas = sumaNotas + (numberParseFloat * 1);
             respuestas.push(Math.round(sumaNotas));
-            console.log('sumaNotas: ', sumaNotas);
         } else {
             respuestas.push(respuesta);
         }
-        console.log('respuestas: ', respuestas);
     }
 
     notasGlobales = respuestas;
-    console.log('Notas globales: ', notasGlobales);
+    // console.log('Notas globales: ', notasGlobales);
 
     totalNotas.push(notasGlobales);
-    console.log('totalNotas: ', totalNotas);
+    // console.log('totalNotas: ', totalNotas);
 
     solicitarOpcion2();
 }
@@ -113,16 +110,16 @@ solicitarOpcion();
 function realizarAccion2(opcion) {
     switch (opcion) {
         case '1':
-            console.log("Has seleccionado la opción 1");
+            // console.log("Has seleccionado la opción 1");
             solicitarNotas();
             break;
         case '2':
-            console.log("Has seleccionado la opción 2"); 
+            // console.log("Has seleccionado la opción 2"); 
             connectionDB(totalNotas);
             exportCSV(totalNotas);
             break;
         case '3':
-            console.log("Has seleccionado la opción 3");
+            // console.log("Has seleccionado la opción 3");
             rl.close();
             break;
         default:

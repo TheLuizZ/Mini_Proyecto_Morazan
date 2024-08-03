@@ -25,9 +25,6 @@ function connectionDB(totalNotes) {
 
     // Insertar los datos en la base de datos
     for (const note of totalNotes) {
-        console.log(note);
-
-        
         db.serialize(() => {
             const insertQuery = querys.insertTBL_NotasParciales;
 
